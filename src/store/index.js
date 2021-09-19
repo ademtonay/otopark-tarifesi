@@ -7,16 +7,23 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    loadingScreenStatus: false
+    loadingScreenStatus: false,
+    totalPrice: ""
   },
   mutations: {
     setLoadingScreenStatus(state, payload) {
       state.loadingScreenStatus = payload;
+    },
+    setTotalPrice(state, payload) {
+      state.totalPrice = payload;
     }
   },
   getters: {
     getLoadingScreenStatus(state) {
       return state.loadingScreenStatus;
+    },
+    getTotalPrice(state) {
+      return state.totalPrice;
     }
   },
   actions: {},
