@@ -95,10 +95,15 @@ export default {
       const getData = await this.$store.dispatch("vehicle/getVehicleTypes");
       const data = this.$store.getters["vehicle/getVehicles"];
       this.multipliers = { ...data };
+    },
+    async getFees() {
+      const getData = await this.$store.dispatch("fee/getParkFees");
+      const data = this.$store.getters["fee/getParkFees"];
     }
   },
   created() {
     this.getVehicleTypes();
+    this.getFees();
   }
 };
 </script>

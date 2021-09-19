@@ -28,14 +28,14 @@ const parkFee = {
       store.commit("setLoadingScreenStatus", true);
       const { API_URL, API_KEY } = process.env;
 
-      Vue.http
+      return Vue.http
         .get(API_URL + "/fees?key=" + API_KEY)
         .then(response => {
-          console.log(response);
+          commit("setParkFees", response.data.data);
           store.commit("setLoadingScreenStatus", false);
         })
         .catch(err => {
-          console.log(err);
+          commit("setError", err);
           store.commit("setLoadingScreenStatus", false);
         });
     }
