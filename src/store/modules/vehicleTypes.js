@@ -1,7 +1,7 @@
 import Vue from "vue";
 import store from "../index";
 
-export default vehicle = {
+const vehicle = {
   namespaced: true,
   state: {
     vehicles: [],
@@ -41,3 +41,5 @@ export default vehicle = {
     }
   }
 };
+
+export default vehicle;

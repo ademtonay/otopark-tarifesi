@@ -1,7 +1,7 @@
 import Vue from "vue";
 import store from "../";
 
-export default parkFee = {
+const parkFee = {
   namespaced: true,
   state: {
     parkFees: [],
@@ -41,3 +41,5 @@ export default parkFee = {
     }
   }
 };
+
+export default parkFee;
