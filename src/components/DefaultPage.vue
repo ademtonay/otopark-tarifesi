@@ -50,6 +50,7 @@
 
 <script>
 import VehicleCard from "./cards/Card";
+import router from "../router";
 export default {
   components: {
     appVehicleCard: VehicleCard
@@ -120,6 +121,7 @@ export default {
       let total = +hour * +vehicle;
       total += " TL";
       this.$store.commit("setTotalPrice", total);
+      router.push("/payment");
     }
   },
   created() {
