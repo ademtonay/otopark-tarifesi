@@ -28,14 +28,14 @@ const vehicle = {
       store.commit("setLoadingScreenStatus", true);
       const { API_URL, API_KEY } = process.env;
 
-      Vue.http
+      return Vue.http
         .get(API_URL + "/vehicles?key=" + API_KEY)
         .then(response => {
-          console.log(response);
+          commit("setVehicles", response.data.data);
           store.commit("setLoadingScreenStatus", false);
         })
         .catch(err => {
-          console.log(err);
+          commit("setError", err);
           store.commit("setLoadingScreenStatus", false);
         });
     }

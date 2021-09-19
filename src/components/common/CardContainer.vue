@@ -9,6 +9,7 @@
           class="card"
           v-for="(vehicle, index) in vehicles"
           :key="index"
+          @click.native="selectedVehicleType = vehicle.type"
         >
           <slot slot="card-img">
             <img :src="vehicle.img.src" :alt="vehicle.img.alt" />
@@ -44,31 +45,47 @@ export default {
           img: {
             src: require("../../assets/img/icon/motorcycle.svg"),
             alt: "motorcycle_img"
-          }
+          },
+          type: "motorcyle"
         },
         {
           name: "Otomobil",
           img: {
             src: require("../../assets/img/icon/car.svg"),
             alt: "car_img"
-          }
+          },
+          type: "car"
         },
         {
           name: "Kamyonet",
           img: {
             src: require("../../assets/img/icon/van.svg"),
             alt: "van_img"
-          }
+          },
+          type: "van"
         },
         {
           name: "Kamyon",
           img: {
             src: require("../../assets/img/icon/truck.svg"),
             alt: "truck_img"
-          }
+          },
+          type: "truck"
         }
-      ]
+      ],
+      multipliers: {},
+      selectedVehicleType: ""
     };
+  },
+  methods: {
+    async getVehicleTypes() {
+      const getData = await this.$store.dispatch("vehicle/getVehicleTypes");
+      const data = this.$store.getters["vehicle/getVehicles"];
+      this.multipliers = { ...data };
+    }
+  },
+  created() {
+    this.getVehicleTypes();
   }
 };
 </script>
