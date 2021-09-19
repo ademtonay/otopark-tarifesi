@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     pay() {
-      this.$store.commit("setTotalPrice", "");
+      this.$store.commit("setTotalPrice", "0 TL");
       this.isCustomerPay = true;
 
       setTimeout(() => {
