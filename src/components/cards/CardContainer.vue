@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import VehicleCard from "../cards/VehicleCard";
+import VehicleCard from "../cards/Card";
 export default {
   components: {
     appVehicleCard: VehicleCard
