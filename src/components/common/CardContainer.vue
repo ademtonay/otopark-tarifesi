@@ -1,6 +1,8 @@
 <template>
   <main class="card-container d-flex align-items-center justify-content-center">
+    <!--______ VEHICLE TYPE ______-->
     <section
+      v-if="selectedVehicleType === ''"
       class="vehicle-types d-flex align-items-center justify-content-center"
       style="flex-direction:column;"
     >
@@ -22,10 +24,21 @@
       <section class="description-container">
         <h3>Lütfen Park Edeceğiniz Araç Türünü Seçiniz</h3>
       </section>
-      <section class="button-container">
-        <button class="btn btn-primary">
-          Devam et
-        </button>
+    </section>
+    <!--______ PARK FEES ______-->
+    <section
+      v-else
+      class="vehicle-types d-flex align-items-center justify-content-center"
+      style="flex-direction:column;"
+    >
+      <section class="d-flex align-items-center justify-content-center">
+        <app-vehicle-card class="card">
+          <slot slot="card-img"> </slot>
+          <slot slot="card-text"> </slot>
+        </app-vehicle-card>
+      </section>
+      <section class="description-container">
+        <h3>Lütfen Aracınızın Parkta Kaç Saat Kalacağını Seçiniz</h3>
       </section>
     </section>
   </main>

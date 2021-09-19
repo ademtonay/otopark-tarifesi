@@ -4,7 +4,7 @@
       <slot name="card-img">
         <img
           class="card-img-top"
-          src="../../assets/img/icon/motorcycle.svg"
+          src="../../assets/img/icon/clock.svg"
           alt="Card image cap"
         />
       </slot>
