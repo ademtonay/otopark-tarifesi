@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import VehicleCard from "../cards/Card";
+import VehicleCard from "./cards/Card";
 export default {
   components: {
     appVehicleCard: VehicleCard
@@ -60,7 +60,7 @@ export default {
         {
           name: "Motorsiklet",
           img: {
-            src: require("../../assets/img/icon/motorcycle.svg"),
+            src: require("../assets/img/icon/motorcycle.svg"),
             alt: "motorcycle_img"
           },
           type: "motorcycle"
@@ -68,7 +68,7 @@ export default {
         {
           name: "Otomobil",
           img: {
-            src: require("../../assets/img/icon/car.svg"),
+            src: require("../assets/img/icon/car.svg"),
             alt: "car_img"
           },
           type: "car"
@@ -76,7 +76,7 @@ export default {
         {
           name: "Kamyonet",
           img: {
-            src: require("../../assets/img/icon/van.svg"),
+            src: require("../assets/img/icon/van.svg"),
             alt: "van_img"
           },
           type: "van"
@@ -84,7 +84,7 @@ export default {
         {
           name: "Kamyon",
           img: {
-            src: require("../../assets/img/icon/truck.svg"),
+            src: require("../assets/img/icon/truck.svg"),
             alt: "truck_img"
           },
           type: "truck"

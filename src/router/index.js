@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
-import CardContainer from "../components/cards/CardContainer";
+import DefaultPage from "../components/DefaultPage";
 
 Vue.use(Router);
 
@@ -9,8 +9,8 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "CardContainer",
-      component: CardContainer
+      name: "DefaultPage",
+      component: DefaultPage
     }
   ]
 });
