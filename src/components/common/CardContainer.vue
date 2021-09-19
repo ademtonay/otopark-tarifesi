@@ -119,6 +119,7 @@ export default {
 
       let total = +hour * +vehicle;
       total += " TL";
+      this.$store.commit("setTotalPrice", total);
     }
   },
   created() {
