@@ -3,8 +3,10 @@ import App from "./App";
 import router from "./router";
 import store from "./store";
 import VueResource from "vue-resource";
+import Notification from "./components/common/Notification";
 
 Vue.use(VueResource);
+Vue.component("app-notification", Notification);
 
 Vue.config.productionTip = false;
 
