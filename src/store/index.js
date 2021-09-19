@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import vehicle from "./modules/vehicleTypes";
+import fee from "./modules/parkFees";
 
 Vue.use(Vuex);
 
@@ -20,6 +21,7 @@ export default new Vuex.Store({
   },
   actions: {},
   modules: {
-    vehicle
+    vehicle,
+    fee
   }
 });
