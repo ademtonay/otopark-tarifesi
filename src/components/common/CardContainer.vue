@@ -32,9 +32,13 @@
       style="flex-direction:column;"
     >
       <section class="d-flex align-items-center justify-content-center">
-        <app-vehicle-card class="card">
-          <slot slot="card-img"> </slot>
-          <slot slot="card-text"> </slot>
+        <app-vehicle-card
+          class="card"
+          v-for="(hour, index) in hours"
+          :key="index"
+          @click.native="calculateTotalFee(hour.value)"
+        >
+          <slot slot="card-text"> {{ hour.displayValue }} </slot>
         </app-vehicle-card>
       </section>
       <section class="description-container">
@@ -59,7 +63,7 @@ export default {
             src: require("../../assets/img/icon/motorcycle.svg"),
             alt: "motorcycle_img"
           },
-          type: "motorcyle"
+          type: "motorcycle"
         },
         {
           name: "Otomobil",
@@ -86,19 +90,35 @@ export default {
           type: "truck"
         }
       ],
+      hours: [
+        { displayValue: "0 ~ 1 Saat", value: "hours_0_1" },
+        { displayValue: "1 ~ 3 Saat", value: "hours_1_3" },
+        { displayValue: "3 ~ 5 Saat", value: "hours_3_5" },
+        { displayValue: "Tam Gün", value: "fullDay" }
+      ],
       multipliers: {},
-      selectedVehicleType: ""
+      selectedVehicleType: "",
+      hourlyWage: {}
     };
   },
   methods: {
     async getVehicleTypes() {
-      const getData = await this.$store.dispatch("vehicle/getVehicleTypes");
+      await this.$store.dispatch("vehicle/getVehicleTypes");
       const data = this.$store.getters["vehicle/getVehicles"];
       this.multipliers = { ...data };
     },
     async getFees() {
-      const getData = await this.$store.dispatch("fee/getParkFees");
+      await this.$store.dispatch("fee/getParkFees");
       const data = this.$store.getters["fee/getParkFees"];
+      this.hourlyWage = { ...data };
+    },
+    calculateTotalFee(selectedHour) {
+      const hour = this.hourlyWage[selectedHour];
+      let vehicle = this.selectedVehicleType;
+      vehicle = this.multipliers[vehicle];
+
+      let total = +hour * +vehicle;
+      total += " TL";
     }
   },
   created() {
