@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
-import CardContainer from "../components/common/CardContainer";
+import CardContainer from "../components/cards/CardContainer";
 
 Vue.use(Router);
 
