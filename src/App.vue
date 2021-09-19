@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <app-loading-screen
+      v-if="$store.getters.getLoadingScreenStatus"
+    ></app-loading-screen>
     <router-view></router-view>
   </div>
 </template>
