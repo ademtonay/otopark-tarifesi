@@ -4,8 +4,6 @@ const prodEnv = require("./prod.env");
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
-  API: {
-    URL: '"http://localhost:5000/api?key="',
-    KEY: '"nothingelsemetterscanim"'
-  }
+  API_URL: '"http://localhost:5000"',
+  API_KEY: '"nothingelsemetterscanim"'
 });
